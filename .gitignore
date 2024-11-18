@@ -1,0 +1,11 @@
+# Composer gerelateerd
+composer.phar
+composer.lock
+/vendor/
+
+# Systeem bestanden
+.DS_Store
+Thumbs.db
+
+# Log bestanden
+*.log
