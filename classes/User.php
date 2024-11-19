@@ -2,8 +2,11 @@
 
 class User
 {
-    protected string $name;
-    protected string $email;
-    protected string $user_id;
-    protected array $loaned_books;
+    protected string $userId, $email, $password, $loaned_books;
+
+    function __construct($email, $password)
+    {
+        $this->email = $email;
+        $this->password = $password;
+    }
 }

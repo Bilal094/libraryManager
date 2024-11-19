@@ -1,7 +1,6 @@
 <?php
 require 'vendor/autoload.php';
-$conn = Database::connectDatabase("localhost", "root");
-Database::createDatabase("libraryManager", $conn);
+Database::connectDatabase("localhost", "root");
 ?>
 
 <!DOCTYPE html>
