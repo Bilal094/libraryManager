@@ -1,0 +1,35 @@
+<?php
+
+$servername = 'localhost';
+$username = 'root';
+
+$conn = new mysqli($servername, $username);
+
+if ($conn->connect_error) 
+{
+    die("Database connection failed: " . $conn->connect_error);
+}
+
+$sql = "CREATE DATABASE IF NOT EXISTS libraryManager";
+
+if ($conn->query($sql) === TRUE)
+{
+    $sql = "CREATE TABLE IF NOT EXISTS users (
+    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(50) NOT NULL,
+    reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+    )"; 
+    
+    if ($conn->query($sql) === TRUE)
+    {
+        $conn->close();
+    } else {
+        echo "Error creating table: " . $conn->error;
+    }
+
+} else {
+    echo "Database creation failed: " . $conn->error;
+}
+
+$conn->close();
